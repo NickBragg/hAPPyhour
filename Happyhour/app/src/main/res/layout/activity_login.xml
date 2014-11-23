@@ -9,8 +9,41 @@
     tools:context=".LoginActivity">
 
     <TextView
-        android:text="@string/hello_world"
+        android:id="@+id/textViewLogin"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Login:"
+        android:textSize="50px"/>
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:text="Username"
+        android:layout_marginTop="20px"
+        android:layout_below="@+id/textViewLogin"/>
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:layout_below="@+id/editTextUsername"
+        android:text="Password"
+        android:inputType="textPassword"/>
+    <Button
+        android:id="@id/loginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:text="Login"
+        android:layout_marginTop="100px"
+        />
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:layout_toRightOf="@+id/loginButton"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginTop="100px"
+        />
 
 </RelativeLayout>
