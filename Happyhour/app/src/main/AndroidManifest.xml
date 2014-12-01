@@ -20,6 +20,10 @@
             android:name="com.example.patrick.happyhour.BarListActivity"
             android:label="@string/title_activity_bar_list" >
         </activity>
+        <activity
+            android:name="com.example.patrick.happyhour.Actionbar"
+            android:label="@string/title_activity_actionbar" >
+        </activity>
     </application>
 
 </manifest>
