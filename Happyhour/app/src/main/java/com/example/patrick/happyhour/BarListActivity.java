@@ -3,6 +3,8 @@ package com.example.patrick.happyhour;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.app.Notification;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,6 +35,9 @@ public class BarListActivity extends Activity {
         }
 
 
+
+
+
     }
 
 
@@ -40,6 +45,9 @@ public class BarListActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.bar_list, menu);
+
+
+
         return true;
     }
 
@@ -49,10 +57,16 @@ public class BarListActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_add) {
+            Fragment fragment = new AddBarFragment();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
         }
         return super.onOptionsItemSelected(item);
+
     }
 
     /**

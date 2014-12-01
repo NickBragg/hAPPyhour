@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -7,7 +7,27 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:text="Add Bar" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/textViewAddName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/textViewAddAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAddName"/>
+    <EditText
+        android:id="@+id/textViewAddRating"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAddAddress"/>
+
+    <Button
+        android:id="@+id/buttonSubmitNew"
+        android:text="Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewAddRating"/>
+
+</RelativeLayout>
