@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.parse.ParseObject;
 
 
 public class AddBarFragment extends Fragment {
@@ -17,7 +18,14 @@ public class AddBarFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_add_bar, container, false);
         return rootView;
     }
+    public void TestAdd()
+    {
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
+    }
 }
+
 
 
 /**

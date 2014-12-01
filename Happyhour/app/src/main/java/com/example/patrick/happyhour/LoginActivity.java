@@ -9,15 +9,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.parse.Parse;
+
 
 public class LoginActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Parse.initialize(this, "SRu94YNeU8zjnu7iR0tqDap9CtiIl2g3JOe3IsJK", "JcCdXnIX6ls8VRxBkJBqdbE6Q89NQn8mqdRbc1Fg");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Button buttonLogin = (Button)findViewById(R.id.loginButton);
         buttonLogin.setOnClickListener(this);
+
     }
 
 

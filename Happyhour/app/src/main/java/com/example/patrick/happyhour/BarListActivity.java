@@ -111,5 +111,8 @@ public class BarListActivity extends Activity {
 
         return barItems;
     }
+    public void AddBar()
+    {
 
+    }
 }
