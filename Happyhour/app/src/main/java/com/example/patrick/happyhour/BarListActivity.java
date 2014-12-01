@@ -63,8 +63,16 @@ public class BarListActivity extends Activity {
             fragmentTransaction.replace(R.id.container, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
-
         }
+            else if (id == R.id.action_search) {
+                    Fragment fragment = new SearchFragment();
+                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.container, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
+            }
+
         return super.onOptionsItemSelected(item);
 
     }
