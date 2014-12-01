@@ -52,12 +52,12 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     private void UserLogin() {
         EditText editTextUsername = (EditText) findViewById(R.id.editTextUsername);
         EditText editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        Intent intent = new Intent(this,BarListActivity.class);
+        startActivity( intent);
+        //if (editTextUsername.getText().toString() == "admin" && editTextPassword.getText().toString() == "admin")
+        //{
 
-        startActivity( new Intent(this,BarListActivity.class));
-        if (editTextUsername.getText().toString() == "admin" && editTextPassword.getText().toString() == "admin")
-        {
-
-        }
+        //}
 
 
     }

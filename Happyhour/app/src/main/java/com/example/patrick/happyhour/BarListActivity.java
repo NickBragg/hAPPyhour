@@ -14,6 +14,7 @@ import android.os.Build;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import Models.Bar;
 import Utils.ListViewAdapter;
@@ -30,6 +31,8 @@ public class BarListActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+
     }
 
 
@@ -63,22 +66,25 @@ public class BarListActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_bar_list, container, false);
+            final View rootView = inflater.inflate(R.layout.fragment_bar_list, container, false);
 
-
-            ListView listViewBar = (ListView) rootView.findViewById(R.id.listViewBar);
-            ListViewAdapter adapter = new ListViewAdapter(this.getActivity(),R.layout.listview_bar_item,getData());
+            ListView listViewBar = (ListView)rootView.findViewById(R.id.listViewBar);
+            List<Bar> barList = getData();
+            ListViewAdapter adapter = new ListViewAdapter(this.getActivity(),R.layout.activity_bar_list,barList);
             listViewBar.setAdapter(adapter);
+
             return rootView;
         }
     }
 
-    private static ArrayList getData(){
+    private static List<Bar> getData(){
 
-        final ArrayList barItems = new ArrayList();
-
-        //barItems.add(new Bar("Sully's Saloon","4th Street",3));
-        //barItems.add(new Bar("Zanzabar","Preston",3));
+        List<Bar> barItems;
+        {
+            barItems = new ArrayList<Bar>();
+            barItems.add(new Bar("Sully's Saloon", "4th Street", "3"));
+            barItems.add(new Bar("Example", "Preston", "3"));
+        }
 
 
         return barItems;

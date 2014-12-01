@@ -10,25 +10,28 @@ import android.widget.TextView;
 
 import com.example.patrick.happyhour.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import Models.Bar;
 
 /**
  * Created by Patrick on 11/23/2014.
  */
-public class ListViewAdapter extends ArrayAdapter {
+public class ListViewAdapter extends ArrayAdapter<Bar> {
 
     private Context context;
     private int layoutResourceId;
-    private ArrayList data = new ArrayList();
+    private List<Bar> mBars;
 
-    public ListViewAdapter(Context context, int layoutResourceId, ArrayList data) {
+    public ListViewAdapter(Context context, int layoutResourceId, List<Bar> data) {
         super(context, layoutResourceId, data);
 
         this.layoutResourceId = layoutResourceId;
         this.context = context;
-        this.data = data;
+        this.mBars = data;
     }
 
     @Override
@@ -37,23 +40,20 @@ public class ListViewAdapter extends ArrayAdapter {
         ViewHolder holder = null;
 
         if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            row = inflater.inflate(layoutResourceId, parent, false);
-            holder = new ViewHolder();
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            row = inflater.inflate(R.layout.listview_bar_item, parent, false);
 
-            holder.barName = (TextView) row.findViewById(R.id.textViewBarName);
-            holder.barAddress = (TextView) row.findViewById(R.id.textViewBarAddress);
-            holder.barRating = (TextView) row.findViewById(R.id.textViewRating);
-
-
-            row.setTag(holder);
-        } else {
-            holder = (ViewHolder) row.getTag();
         }
-        Bar barItem = (Bar) data.get(position);
-        holder.barName.setText(barItem.getName());
-        holder.barAddress.setText(barItem.getAddress());
-        holder.barRating.setText(barItem.getRating());
+        final Bar bar = mBars.get(position);
+
+        TextView textViewName = (TextView)row.findViewById(R.id.textViewBarName);
+        textViewName.setText(bar.getName());
+
+        TextView textViewAddress = (TextView)row.findViewById(R.id.textViewBarAddress);
+        textViewAddress.setText(bar.getAddress());
+
+        TextView textViewRating = (TextView)row.findViewById(R.id.textViewRating);
+        textViewRating.setText(bar.getRating());
 
         return row;
     }

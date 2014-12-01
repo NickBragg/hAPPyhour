@@ -6,7 +6,7 @@ package Models;
 public class Bar {
 
     //Default Constructor
-    public Bar(String name, String address, int rating){
+    public Bar(String name, String address, String rating){
         super();
         this.name = name;
         this.address = address;
@@ -15,14 +15,14 @@ public class Bar {
 
     private String name;
     private String address;
-    private int rating;
+    private String rating;
 
     public String getName(){return name;}
     public String getAddress(){return address;}
-    public int getRating(){return rating;}
+    public String getRating(){return rating;}
 
     public void setName(String name){this.name = name;}
     public void setAddress(String address){this.address = address;}
-    public void setRating(int rating){this.rating = rating;}
+    public void setRating(String rating){this.rating = rating;}
 
 }
