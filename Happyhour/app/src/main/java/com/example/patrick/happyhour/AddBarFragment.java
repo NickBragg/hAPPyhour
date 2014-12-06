@@ -1,28 +1,64 @@
 package com.example.patrick.happyhour;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseObject;
 
+import Models.Bar;
 
-public class AddBarFragment extends Fragment {
+
+public class AddBarFragment extends Fragment implements View.OnClickListener {
+
+    EditText barName;
+    EditText barAddress;
+    EditText barRating;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_add_bar, container, false);
+        //rootView.setOnClickListener(this);
+        Button submitButton = (Button)rootView.findViewById(R.id.buttonSubmitNew);
+        barName = (EditText) rootView.findViewById(R.id.textViewAddName);
+        barAddress = (EditText) rootView.findViewById(R.id.textViewAddAddress);
+        barRating = (EditText) rootView.findViewById(R.id.textViewAddRating);
+        submitButton.setOnClickListener(this);
         return rootView;
     }
     public void TestAdd()
     {
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+        Bar newBar = new Bar(barName.getText().toString(),barAddress.getText().toString(),barRating.getText().toString());
+
+
+
+        ParseObject barObject = new ParseObject("barObject");
+        barObject.put("barName", newBar.getName());
+        barObject.put("barAddress", newBar.getAddress());
+        barObject.put("barRating", newBar.getRating());
+        barObject.saveInBackground();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.buttonSubmitNew) {
+            Toast.makeText(getActivity().getBaseContext(), "Bar added.", Toast.LENGTH_SHORT).show();
+            TestAdd();
+        }
+
+
+
+
     }
 }
 
